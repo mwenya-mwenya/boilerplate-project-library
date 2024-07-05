@@ -6,7 +6,8 @@ $( document ).ready(function() {
     //let  items = [];
     itemsRaw = data;
     $.each(data, function(i, val) {
-      items.push('<li class="bookItem" id="' + i + '">' + val.title + ' - ' + val.commentcount + ' comments</li>');
+      let numberOfComments = (val.commentcount === undefined) ? "no":val.commentcount;
+      items.push('<li class="bookItem" id="' + i + '">' + val.title + ' - ' + numberOfComments + ' comments</li>');
       return ( i !== 14 );
     });
     if (items.length >= 15) {
